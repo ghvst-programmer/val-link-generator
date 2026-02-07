@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MKDLT2KFZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0MKDLT2KFZ');
+</script>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Valentine</title>
+
+<style>
+:root{--pink:#ff4d6d;}
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100svh;
+  background:linear-gradient(180deg,#ffe3ea,#fff);
+  font-family:system-ui,Segoe UI,Arial,sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:16px;
+  overflow:hidden;
+}
+
+.page{
+  width:100%;
+  max-width:420px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+}
+
+.card{
+  width:100%;
+  max-width:380px;
+  background:#fff;
+  border-radius:22px;
+  padding:26px 20px 20px;
+  animation:slideUp .5s ease;
+  box-shadow:0 20px 40px rgba(255,77,109,.35);
+  text-align:center;
+}
+
+@keyframes slideUp{
+  from{transform:translateY(40px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+h1{color:var(--pink);margin-top:0}
+
+.buttons{
+  margin-top:22px;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+}
+
+button{
+  border:none;
+  border-radius:999px;
+  padding:12px 22px;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#yes{background:var(--pink);color:#fff;}
+#no{
+  background:#ffe1e8;
+  color:#7a0030;
+  position:relative;
+  transition:transform .15s ease;
+}
+
+.back{
+  margin-top:14px;
+  background:#ffe3ea;
+  color:#7a0030;
+  font-size:14px;
+  padding:10px 18px;
+}
+
+.dev{
+  margin-top:18px;
+  display:flex;
+  justify-content:center;
+}
+
+.dev a{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#000;
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:600;
+}
+
+.dev svg{width:15px;height:15px;fill:#fff}
+
+/* laugh */
+.laugh{
+  position:fixed;
+  font-size:22px;
+  animation:pop 1.2s ease forwards;
+  pointer-events:none;
+}
+@keyframes pop{
+  from{transform:scale(0);opacity:0}
+  40%{opacity:1}
+  to{transform:translateY(-90px) scale(1.3);opacity:0}
+}
+
+/* popup */
+.popup{
+  position:fixed;
+  background:var(--pink);
+  color:#fff;
+  padding:8px 16px;
+  border-radius:999px;
+  font-weight:700;
+  animation:popup 1.2s ease forwards;
+  pointer-events:none;
+  white-space:nowrap;
+}
+@keyframes popup{
+  from{opacity:0;transform:translateY(20px) scale(.6)}
+  30%{opacity:1}
+  to{opacity:0;transform:translateY(-70px) scale(1)}
+}
+
+/* love */
+.love{
+  position:fixed;
+  font-size:22px;
+  animation:love 2.5s linear forwards;
+  pointer-events:none;
+}
+@keyframes love{
+  from{transform:translateY(0) scale(1);opacity:1}
+  to{transform:translateY(-120vh) scale(1.6);opacity:0}
+}
+
+/* ad */
+.ad-wrap{width:100%;display:flex;justify-content:center;}
+.ad-box{
+  background:rgba(255,255,255,.85);
+  border-radius:16px;
+  padding:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+.ad-label{text-align:center;font-size:11px;color:#555;margin-bottom:6px;}
+</style>
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="card" id="card">
+  <h1 id="title"></h1>
+  <p id="message"></p>
+
+  <div class="buttons">
+    <button id="yes">Yes 💖</button>
+    <button id="no">No 🙈</button>
+  </div>
+
+  <button class="back" onclick="goBack()">← Generate proposal</button>
+
+  <div class="dev">
+    <a href="https://x.com/ghvstprogrammer" target="_blank">
+      ghvst programmer
+      <svg viewBox="0 0 24 24">
+        <path d="M18.901 1.153h3.68l-8.04 9.19 9.454 12.504h-7.39l-5.787-7.566-6.626 7.566H.51l8.6-9.83L.05 1.154h7.57l5.23 6.912 6.051-6.912z"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<div class="ad-wrap">
+  <div class="ad-box">
+    <div>
+      <div class="ad-label">Sponsored</div>
+
+      <script>
+        atOptions = {
+          'key' : '4b4f42aabb9c5a1f85f813c9f798ace0',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/4b4f42aabb9c5a1f85f813c9f798ace0/invoke.js"></script>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function decode(str){
+  str=str.replace(/-/g,'+').replace(/_/g,'/');
+  return JSON.parse(decodeURIComponent(escape(atob(str))));
+}
+
+const p=new URLSearchParams(location.search);
+
+let data={
+  f:"Ola",
+  t:"Ada",
+  m:"Will you be my Val? 💕",
+  s:"My sweet val, get ready to have the best day of your life 💕"
+};
+
+if(p.get("sample")!=="1" && p.get("d")){
+  try{ data=decode(p.get("d")); }catch(e){}
+}
+
+title.textContent=`${data.f} asks ${data.t}`;
+message.textContent=data.m;
+
+function goBack(){location.href="index.html";}
+
+const noBtn=document.getElementById("no");
+const yesBtn=document.getElementById("yes");
+
+let dx=0,dy=0;
+
+noBtn.addEventListener("click",handleNo);
+noBtn.addEventListener("touchstart",e=>{
+  e.preventDefault();
+  handleNo();
+});
+
+function handleNo(){
+  wiggle();
+  laughBurst();
+  manyPopups();
+}
+
+function wiggle(){
+  dx+=(Math.random()*20-10);
+  dy+=(Math.random()*12-6);
+  dx=Math.max(-25,Math.min(25,dx));
+  dy=Math.max(-15,Math.min(15,dy));
+  noBtn.style.transform=`translate(${dx}px,${dy}px)`;
+}
+
+function laughBurst(){
+  const r=noBtn.getBoundingClientRect();
+  const cx=r.left+r.width/2;
+  const cy=r.top+r.height/2;
+
+  for(let i=0;i<10;i++){
+    const el=document.createElement("div");
+    el.className="laugh";
+    el.textContent="😂";
+    el.style.left=(cx+(Math.random()*60-30))+"px";
+    el.style.top=(cy+(Math.random()*40-20))+"px";
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),1200);
+  }
+}
+
+function manyPopups(){
+  for(let i=0;i<10;i++){
+    setTimeout(()=>{
+      const p=document.createElement("div");
+      p.className="popup";
+      p.textContent="Not possible 😜";
+      p.style.left=(50+(Math.random()*40-20))+"%";
+      p.style.top=(45+(Math.random()*20-10))+"%";
+      document.body.appendChild(p);
+      setTimeout(()=>p.remove(),1200);
+    },i*60);
+  }
+}
+
+/* YES – show creator's secret message */
+
+yesBtn.addEventListener("click",()=>{
+  loveRain();
+
+  card.innerHTML=`
+    <h1>💘 Yay!!!</h1>
+    <p>${escapeHTML(data.s)}</p>
+    <button class="back" onclick="goBack()">← Generate proposal</button>
+    <div class="dev">
+      <a href="https://x.com/ghvstprogrammer" target="_blank">
+        ghvst programmer
+      </a>
+    </div>
+  `;
+});
+
+function loveRain(){
+  const icons=["💖","💘","💕","❤️","😍"];
+
+  for(let i=0;i<40;i++){
+    setTimeout(()=>{
+      const l=document.createElement("div");
+      l.className="love";
+      l.textContent=icons[Math.floor(Math.random()*icons.length)];
+      l.style.left=Math.random()*100+"vw";
+      l.style.bottom="-20px";
+      l.style.fontSize=(18+Math.random()*18)+"px";
+      document.body.appendChild(l);
+      setTimeout(()=>l.remove(),2600);
+    },i*50);
+  }
+}
+
+/* small safety helper */
+function escapeHTML(str){
+  return String(str)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;");
+}
+</script>
+
+</body>
+</html>

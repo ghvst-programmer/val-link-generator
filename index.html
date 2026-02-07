@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MKDLT2KFZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0MKDLT2KFZ');
+</script>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Valentine Link Generator</title>
+
+<style>
+:root{--pink:#ff4d6d;}
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100svh;
+  background:linear-gradient(160deg,#ff8fb1,#ff4d6d);
+  font-family:system-ui,Segoe UI,Arial,sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:16px;
+}
+
+.page{
+  width:100%;
+  max-width:420px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+}
+
+.card{
+  width:100%;
+  max-width:380px;
+  background:#fff;
+  border-radius:22px;
+  padding:24px 20px 20px;
+  animation:slideUp .6s cubic-bezier(.2,.9,.3,1);
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+@keyframes slideUp{
+  from{transform:translateY(40px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+h1{
+  margin:0 0 14px;
+  color:var(--pink);
+  text-align:center;
+}
+
+input,textarea{
+  width:100%;
+  padding:13px 14px;
+  border-radius:14px;
+  border:1px solid #ffd1dc;
+  margin-bottom:12px;
+  font-size:15px;
+  font-family:inherit;
+  resize:none;
+}
+
+button{
+  width:100%;
+  border:none;
+  border-radius:999px;
+  padding:13px 18px;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.primary{background:var(--pink);color:#fff;margin-bottom:10px;}
+.secondary{background:#ffe3ea;color:#7a0030;margin-bottom:14px;}
+
+#result{
+  font-size:13px;
+  text-align:center;
+  word-break:break-all;
+}
+
+footer{
+  margin-top:14px;
+  display:flex;
+  justify-content:center;
+}
+
+.dev-link{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#000;
+  color:#fff;
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.dev-link svg{width:16px;height:16px;fill:#fff}
+
+/* ad */
+.ad-wrap{width:100%;display:flex;justify-content:center;}
+.ad-box{
+  background:rgba(255,255,255,.85);
+  border-radius:16px;
+  padding:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+.ad-label{text-align:center;font-size:11px;color:#555;margin-bottom:6px;}
+</style>
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="card">
+  <h1>💖 Valentine Link</h1>
+
+  <input id="from" placeholder="Your name">
+  <input id="to" placeholder="Partner's name">
+  <input id="msg" value="Will you be my Val?">
+
+  <!-- ✅ new secret YES message -->
+  <textarea id="secret" rows="2"
+    placeholder="Type a secret message once proposal is accepted 💌"></textarea>
+
+  <button class="primary" onclick="generate()">Generate link</button>
+  <button class="secondary" onclick="openSample()">Preview sample page</button>
+
+  <div id="result"></div>
+
+  <footer>
+    <a class="dev-link" href="https://x.com/ghvstprogrammer" target="_blank">
+      ghvst programmer
+      <svg viewBox="0 0 24 24">
+        <path d="M18.901 1.153h3.68l-8.04 9.19 9.454 12.504h-7.39l-5.787-7.566-6.626 7.566H.51l8.6-9.83L.05 1.154h7.57l5.23 6.912 6.051-6.912z"/>
+      </svg>
+    </a>
+  </footer>
+</div>
+
+<div class="ad-wrap">
+  <div class="ad-box">
+    <div>
+      <div class="ad-label">Sponsored</div>
+
+      <script>
+        atOptions = {
+          'key' : '4b4f42aabb9c5a1f85f813c9f798ace0',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/4b4f42aabb9c5a1f85f813c9f798ace0/invoke.js"></script>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function encode(obj){
+  return btoa(unescape(encodeURIComponent(JSON.stringify(obj))))
+    .replace(/=+$/,'')
+    .replace(/\+/g,'-')
+    .replace(/\//g,'_');
+}
+
+function generate(){
+  const payload={
+    f:from.value||"Someone",
+    t:to.value||"You",
+    m:msg.value||"Will you be my Val?",
+    s:secret.value||"My sweet val, get ready to have the best day of your life 💕"
+  };
+
+  const short=encode(payload);
+  const url=`${location.origin}/view.html?d=${short}`;
+
+  result.innerHTML=`<b>Your  link</b><br>
+    <a href="${url}" target="_blank">${url}</a>`;
+}
+
+function openSample(){
+  window.open(`${location.origin}/view.html?sample=1`,"_blank");
+}
+</script>
+
+</body>
+</html>
